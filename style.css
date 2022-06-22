@@ -1,3 +1,10 @@
 .pokemon-caught {
     color: green;
 }
+
+.search-icon{
+    height: 15px;
+    width: 15px;
+    border-radius: 30px;
+    background-size: cover;
+}

@@ -7,7 +7,9 @@ let pageNumber = 0
 const numberOfPokemonPerPage = 40
 const backButton= document.querySelector('#back')
 const forwardButton= document.querySelector('#forward')
-
+const pokemonSearchForm= document.querySelector('#pokemon-search-form')
+const pokemonDatalist= document.querySelector('#pokemon-datalist')
+const searchBlank= document.querySelector('#search')
 
 const findPokemon= async() => {
     for (let id = 1; id <= 151; id++) {
@@ -22,13 +24,15 @@ const findPokemon= async() => {
         type: pokemon.types.map(type => type.type.name).join(', ')
         }
     originalPokemonList.push(newPokemon)
-     })
+    })
     }
     pageNumberAndPokemon(originalPokemonList)
+    createDataList()
+    searchForPokemon(originalPokemonList)
 }
 findPokemon()
 
-function displayPokemon(pokemon) {
+const displayPokemon= (pokemon) => {
     const showPokemonInfo= createPokemonProfile(pokemon, pokemonListContainer)
     showPokemonInfo.addEventListener('click', (event) => {
         featuredPokemonContainer.textContent= ''
@@ -40,12 +44,10 @@ function displayPokemon(pokemon) {
             const addPokemonObtained=document.createElement('p')
             pokemonObtainedList.append(addPokemonObtained)
             addPokemonObtained.textContent= pokemon.name
-
             addPokemonObtained.addEventListener('click', (event) => {
                 featuredPokemonContainer.textContent= ''
                 createPokemonProfile(pokemon,featuredPokemonContainer,true)
             })
-
             const addToTeamButton= document.createElement('button')
             addToTeamButton.textContent= 'Add to Team'
             const removeButton= document.createElement('button')
@@ -62,12 +64,9 @@ function displayPokemon(pokemon) {
                 removeFromTeamButton.addEventListener('click', (event) => {
                     teamImage.remove()
                     removeFromTeamButton.remove()
-                    const addPokemonObtained=document.createElement('p')
                     pokemonObtainedList.append(addPokemonObtained)
-                    addPokemonObtained.textContent= pokemon.name
                 })
                 })
-
             removeButton.addEventListener('click', (event) => {
                 addPokemonObtained.remove()
                 })
@@ -76,7 +75,7 @@ function displayPokemon(pokemon) {
     
 }
 
-function createPokemonProfile(pokemon,container,pokeObtained=false) {
+const createPokemonProfile= (pokemon,container,pokeObtained=false) => {
     const li= document.createElement('li')
     const img= document.createElement('img')
     const h2= document.createElement('h2')
@@ -116,8 +115,23 @@ forwardButton.addEventListener('click', (event) => {
     }
 })
 
+const createDataList= () => {
+        originalPokemonList.forEach(pokemon => { 
+        const optionForPokemonSearch= document.createElement('option')
+        optionForPokemonSearch.value= pokemon.name
+        pokemonDatalist.append(optionForPokemonSearch) 
+})
+}
 
-
+const searchForPokemon= () => {
+    let pokemon = originalPokemonList
+    pokemonSearchForm.addEventListener('submit', (event) => {
+        event.preventDefault()
+        featuredPokemonContainer.textContent=''
+        originalPokemonList.find(pokemon => pokemon.name === searchBlank.textContent)
+        createPokemonProfile(pokemon,featuredPokemonContainer)
+    })
+} 
 
 
 

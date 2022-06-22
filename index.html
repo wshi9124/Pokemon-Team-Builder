@@ -12,21 +12,29 @@
     <header>
         <h1>Pokémon Pokédex</h1>    
     </header>
-    <nav>
-        <!--random links-->
-    </nav>
     <main>
         <div id="showcase-pokemon"></div>
         <div id="pokemon-obtained-list">
-            <h3>Pokemon Obtained</h3>
+            <h3>Pokémon Obtained</h3>
         </div>
         <div id="pokemon-team-container">
-            <h3>Pokemon Team</h3>
+            <h3>Pokémon Team</h3>
         </div>
-        <ol id="pokemon-list-container">
-        </ol>
-        <button id="back"> <= </button>
-        <button id="forward"> => </button>
+        <div>
+            <form id="pokemon-search-form">
+                <input list="pokemon-datalist" type="text" placeholder="Pokémon name or id" name="search" id="search" >
+                <datalist id="pokemon-datalist"></datalist>
+                <button type="submit">Find</button>
+            </form>
+        </div>
+        <div>
+            <ol id="pokemon-list-container">
+            </ol>
+        </div>
+        <div>
+            <button id="back"> <= </button>
+            <button id="forward"> => </button>
+        </div>
     </main>
     <footer>
         <div>
