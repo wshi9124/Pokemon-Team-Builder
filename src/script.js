@@ -1,13 +1,20 @@
 let originalPokemonList=[]
+let teamList= []
 const pokemonListContainer= document.querySelector('#pokemon-list-container')
 const featuredPokemonContainer= document.querySelector('#showcase-pokemon')
 const pokemonObtainedList= document.querySelector('#pokemon-obtained-list')
 const pokemonTeamContainer= document.querySelector('#pokemon-team-container')
 let pageNumber = 0
 const numberOfPokemonPerPage = 40
+const saveTeamButton= document.querySelector('#save-team')
+const teamNameBlank= document.querySelector('#team-name')
 const backButton= document.querySelector('#back')
 const forwardButton= document.querySelector('#forward')
-
+const pokemonSearchForm= document.querySelector('#pokemon-search-form')
+const pokemonDatalist= document.querySelector('#pokemon-datalist')
+const searchBlank= document.querySelector('#search')
+const pokemonTeamList= document.querySelector('#pokemon-team-list')
+const randomPokemonButton= document.querySelector('#random-pokemon')
 
 const findPokemon= async() => {
     for (let id = 1; id <= 151; id++) {
@@ -45,13 +52,13 @@ function displayPokemon(pokemon) {
                 featuredPokemonContainer.textContent= ''
                 createPokemonProfile(pokemon,featuredPokemonContainer,true)
             })
-
+            const addtoTeamAndRemoveContainer= document.createElement('p')
+            pokemonObtainedList.append(addtoTeamAndRemoveContainer)
             const addToTeamButton= document.createElement('button')
             addToTeamButton.textContent= 'Add to Team'
             const removeButton= document.createElement('button')
             removeButton.textContent= 'Remove'
-            addPokemonObtained.append(addToTeamButton,removeButton)
-
+            addtoTeamAndRemoveContainer.append(addToTeamButton,removeButton)
             addToTeamButton.addEventListener('click', (event) => {
                 const teamImage= document.createElement('img')
                 const removeFromTeamButton= document.createElement('button')
@@ -59,21 +66,26 @@ function displayPokemon(pokemon) {
                 removeFromTeamButton.textContent= 'Remove from team'
                 pokemonTeamContainer.append(teamImage,removeFromTeamButton)
                 addPokemonObtained.remove()
+                addtoTeamAndRemoveContainer.remove()
                 removeFromTeamButton.addEventListener('click', (event) => {
                     teamImage.remove()
                     removeFromTeamButton.remove()
-                    const addPokemonObtained=document.createElement('p')
+                    featuredPokemonContainer.textContent=''
                     pokemonObtainedList.append(addPokemonObtained)
-                    addPokemonObtained.textContent= pokemon.name
+                    addPokemonObtained.append(addtoTeamAndRemoveContainer)
+                })
+                teamImage.addEventListener('click',(event) => {
+                    featuredPokemonContainer.textContent= ''
+                    createPokemonProfile(pokemon,featuredPokemonContainer,true)    
                 })
                 })
-
-            removeButton.addEventListener('click', (event) => {
-                addPokemonObtained.remove()
+                removeButton.addEventListener('click', (event) => {
+                    addPokemonObtained.remove()
+                    featuredPokemonContainer.textContent=''
+                    addtoTeamAndRemoveContainer.remove()
                 })
         })
-    })
-    
+    })     
 }
 
 function createPokemonProfile(pokemon,container,pokeObtained=false) {
@@ -102,6 +114,12 @@ const pageNumberAndPokemon= (originalPokemonList) => {
     }
 } 
 
+randomPokemonButton.addEventListener('click', (event) => {
+    featuredPokemonContainer.textContent= ''
+    const randomPokemon= originalPokemonList[Math.floor (Math.random() * originalPokemonList.length)]
+    createPokemonProfile(randomPokemon,featuredPokemonContainer)
+})
+
 backButton.addEventListener('click', (event) =>{
     if (pageNumber > 0) {
         pageNumber = pageNumber - 1
@@ -116,11 +134,36 @@ forwardButton.addEventListener('click', (event) => {
     }
 })
 
+const createDataList= () => {
+        originalPokemonList.forEach(pokemon => { 
+        const optionForPokemonSearch= document.createElement('option')
+        optionForPokemonSearch.value= pokemon.name
+        pokemonDatalist.append(optionForPokemonSearch) 
+})
+}
 
+const searchForPokemon= () => {
+    pokemonSearchForm.addEventListener('submit', (event,pokemon) => {
+        event.preventDefault()
+        featuredPokemonContainer.textContent=''
+        const individualPokemon= originalPokemonList.find(pokemon => pokemon.name === searchBlank.value)
+        createPokemonProfile(individualPokemon,featuredPokemonContainer)
+    })
+} 
 
-
-
-
-
-
+saveTeamButton.addEventListener('submit', (event)=> {
+    event.preventDefault()
+    fetch('http://localhost:3000/pokemonTeam', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name : teamNameBlank.value,
+        
+        }),    
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+ })
 

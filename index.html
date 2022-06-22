@@ -14,22 +14,32 @@
     </header>
     <main>
         <div id="showcase-pokemon"></div>
+        <div>
+        <button id="random-pokemon">Get Random Pokemon</button>
+        </div>
         <div id="pokemon-obtained-list">
             <h3>Pokémon Obtained</h3>
         </div>
+        <div>
+            <h3>Pokémon Team List</h3>
+            <ol id='pokemon-team-list'></ol>
+        </div>
         <div id="pokemon-team-container">
             <h3>Pokémon Team</h3>
+            <form id="save-team">
+                <input type="text" placeholder="Team name" name="team-name" id="team-name">
+                <button type="submit">Save team</button>
+            </form>
         </div>
         <div>
             <form id="pokemon-search-form">
-                <input list="pokemon-datalist" type="text" placeholder="Pokémon name or id" name="search" id="search" >
+                <input list="pokemon-datalist" type="text" placeholder="Pokémon name" name="search" id="search" >
                 <datalist id="pokemon-datalist"></datalist>
                 <button type="submit">Find</button>
             </form>
         </div>
         <div>
-            <ol id="pokemon-list-container">
-            </ol>
+            <ol id="pokemon-list-container"></ol>
         </div>
         <div>
             <button id="back"> <= </button>
