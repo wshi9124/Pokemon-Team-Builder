@@ -1,74 +1,24 @@
 {
   "pokemonTeam": [
     {
-      "name": "roc",
+      "name": "",
+      "fullTeam": [],
       "id": 1
     },
     {
-      "name": "1422535245",
-      "FullTeam": [
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        }
-      ],
+      "name": "",
+      "fullTeam": [],
       "id": 2
     },
     {
-      "name": "1422535245",
-      "FullTeam": [
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        },
-        {
-          "id": 1,
-          "name": "bulbasaur",
-          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-          "type": "grass, poison"
-        }
-      ],
+      "name": "",
+      "fullTeam": [],
       "id": 3
+    },
+    {
+      "name": "",
+      "fullTeam": [],
+      "id": 4
     }
   ]
 }

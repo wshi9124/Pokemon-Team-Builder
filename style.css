@@ -1,10 +1,80 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.pokemon-header {
+    /* background-image: url(https://c.tenor.com/EL-lwQBtVZ4AAAAi/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6-pokeball.gif); */
+    background-color: white;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-size: 90px;
+    font-family: Marker Felt, fantasy;
+    
+}
+
+.first-section-container {
+    display: inline-block;
+    display: flex;
+}
+
+#showcase-pokemon {
+    border-style: solid;
+    background-color: rgb(127,144,194);
+    flex: 1.5;
+    height: 350px;
+    text-align: center;
+}
+
+#pokemon-obtained-list {
+    border-style: solid;
+    background-color: blue;
+    flex: 1;
+    text-align: center;
+}
+
+.pokemon-team-list-div{
+    border-style: solid;
+    background-color: purple;
+    flex: 1;
+    text-align: center;
+}
+
+.pokemon-team-container-and-form {
+    background-color: green;
+    border-style: solid;
+    width: auto;
+    height: 350px;
+    text-align: center;
+}
+
+.pokemon-list-background {
+    background-color: orangered;
+}
+
 .pokemon-caught {
     color: green;
 }
 
-.search-icon{
-    height: 15px;
-    width: 15px;
-    border-radius: 30px;
-    background-size: cover;
+li{
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    background-color: #F8F8F8;
+    text-align: center;
+}
+
+.footer-div{
+    text-align: center;
+    font-size: 20px;
+    font-family: Chalkduster, fantasy;
 }

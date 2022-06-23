@@ -7,7 +7,7 @@ const pokemonObtainedList= document.querySelector('#pokemon-obtained-list')
 const pokemonTeamContainer= document.querySelector('#pokemon-team-container')
 let pageNumber = 0
 const numberOfPokemonPerPage = 40
-const saveTeamButton= document.querySelector('#save-team')
+const saveTeamForm= document.querySelector('#save-team')
 const teamNameBlank= document.querySelector('#team-name')
 const backButton= document.querySelector('#back')
 const forwardButton= document.querySelector('#forward')
@@ -33,6 +33,9 @@ const findPokemon= async() => {
      })
     }
     pageNumberAndPokemon(originalPokemonList)
+    createDataList()
+    searchForPokemon()
+    
 }
 findPokemon()
 
@@ -158,7 +161,7 @@ const createRestOfButtons= (profile,pokemon) => {
     })
 }
 
-saveTeamButton.addEventListener('submit', (event)=> {
+saveTeamForm.addEventListener('submit', (event)=> {
     event.preventDefault()
     fetch('http://localhost:3000/pokemonTeam', {
         method: 'POST', 
@@ -167,7 +170,7 @@ saveTeamButton.addEventListener('submit', (event)=> {
         },
         body: JSON.stringify({
             name : teamNameBlank.value,
-            FullTeam: currentTeam
+            fullTeam: currentTeam
         }),    
     })
     .then(response => response.json())
@@ -175,10 +178,10 @@ saveTeamButton.addEventListener('submit', (event)=> {
 })
 
 const addToTeamList= (pokemonTeam) => {
-        teamList.push(pokemonTeam)
-        pokemonTeamListItem= document.createElement('li')
-        pokemonTeamList.append(pokemonTeamListItem)
-        pokemonTeamListItem.textContent= pokemonTeam.name
+    showTeamListPokemon(pokemonTeam)
+    currentTeam= []
+    pokemonTeamContainer.textContent=''
+    saveTeamForm.reset()
 }  
 
 fetch('http://localhost:3000/pokemonTeam')
@@ -187,11 +190,21 @@ fetch('http://localhost:3000/pokemonTeam')
 
 const addToTeamList2= (pokemonTeam) => {
     pokemonTeam.forEach (pokemonTeam => {
+    showTeamListPokemon(pokemonTeam)
+    })
+}
+
+const showTeamListPokemon = (pokemonTeam) => {
     teamList.push(pokemonTeam)
     pokemonTeamListItem= document.createElement('li')
     pokemonTeamList.append(pokemonTeamListItem)
     pokemonTeamListItem.textContent= pokemonTeam.name
+    pokemonTeamListItem.addEventListener('click', () => {
+        pokemonTeamContainer.textContent= ''
+        pokemonTeam.fullTeam.forEach (pokemon => { 
+        createPokemonTeamImage= document.createElement('img')
+        pokemonTeamContainer.append(createPokemonTeamImage)
+        createPokemonTeamImage.src= pokemon.image
+        })
     })
 }
-
-console.log(teamList)
