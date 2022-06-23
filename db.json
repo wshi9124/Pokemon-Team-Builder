@@ -1,11 +1,43 @@
 {
   "pokemonTeam": [
     {
-      "name": "efghs",
+      "name": "roc",
       "id": 1
     },
     {
-      "name": "t4",
+      "name": "1422535245",
+      "FullTeam": [
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+          "type": "grass, poison"
+        },
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+          "type": "grass, poison"
+        },
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+          "type": "grass, poison"
+        },
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+          "type": "grass, poison"
+        },
+        {
+          "id": 1,
+          "name": "bulbasaur",
+          "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+          "type": "grass, poison"
+        }
+      ],
       "id": 2
     }
   ]

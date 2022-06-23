@@ -1,5 +1,6 @@
 const originalPokemonList=[]
 const teamList= []
+const currentTeam=[]
 const pokemonListContainer= document.querySelector('#pokemon-list-container')
 const featuredPokemonContainer= document.querySelector('#showcase-pokemon')
 const pokemonObtainedList= document.querySelector('#pokemon-obtained-list')
@@ -138,6 +139,7 @@ const createRestOfButtons= (profile,pokemon) => {
                 pokemonTeamContainer.append(teamImage,removeFromTeamButton)
                 addPokemonObtained.remove()
                 addtoTeamAndRemoveContainer.remove()
+                currentTeam.push(pokemon)
                 removeFromTeamButton.addEventListener('click', (event) => {
                     teamImage.remove()
                     removeFromTeamButton.remove()
@@ -167,7 +169,7 @@ saveTeamButton.addEventListener('submit', (event)=> {
         },
         body: JSON.stringify({
             name : teamNameBlank.value,
-        
+            FullTeam: currentTeam
         }),    
     })
     .then(response => response.json())
@@ -181,11 +183,17 @@ const addToTeamList= (pokemonTeam) => {
         pokemonTeamListItem.textContent= pokemonTeam.name
 }  
 
-
 fetch('http://localhost:3000/pokemonTeam')
 .then(response => response.json())
-    .then(pokemonTeam => addToTeamList(pokemonTeam))
+    .then(pokemonTeam => addToTeamList2(pokemonTeam))
 
-const addToTeamList= (pokemonTeam) {
-    
+const addToTeamList2= (pokemonTeam) => {
+    pokemonTeam.forEach (pokemonTeam => {
+    teamList.push(pokemonTeam)
+    pokemonTeamListItem= document.createElement('li')
+    pokemonTeamList.append(pokemonTeamListItem)
+    pokemonTeamListItem.textContent= pokemonTeam.name
+    })
 }
+
+console.log(teamList)
