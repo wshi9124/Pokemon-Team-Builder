@@ -30,11 +30,9 @@ const findPokemon= async() => {
         type: pokemon.types.map(type => type.type.name).join(', ')
         }
     originalPokemonList.push(newPokemon)
-    })
+     })
     }
     pageNumberAndPokemon(originalPokemonList)
-    createDataList()
-    searchForPokemon(originalPokemonList)
 }
 findPokemon()
 
