@@ -117,6 +117,7 @@ const createRestOfButtons= (profile,pokemon) => {
     const addToList= document.createElement('button')
     profile.append(addToList)
     addToList.textContent= 'Add to list'
+    addToList.classList.add('add-to-list-button')
     addToList.addEventListener('click', (event) => {
         const addPokemonObtained=document.createElement('p')
         pokemonObtainedList.append(addPokemonObtained)

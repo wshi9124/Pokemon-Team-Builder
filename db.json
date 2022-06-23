@@ -1,24 +1,3 @@
 {
-  "pokemonTeam": [
-    {
-      "name": "",
-      "fullTeam": [],
-      "id": 1
-    },
-    {
-      "name": "",
-      "fullTeam": [],
-      "id": 2
-    },
-    {
-      "name": "",
-      "fullTeam": [],
-      "id": 3
-    },
-    {
-      "name": "",
-      "fullTeam": [],
-      "id": 4
-    }
-  ]
+  "pokemonTeam": []
 }
