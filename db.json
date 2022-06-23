@@ -1,5 +1,12 @@
 {
   "pokemonTeam": [
-    
+    {
+      "name": "efghs",
+      "id": 1
+    },
+    {
+      "name": "t4",
+      "id": 2
+    }
   ]
 }
