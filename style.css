@@ -1,25 +1,47 @@
 *{font-family: Impact, fantasy;}
+
 html {
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
 }
 
 body {
     height: 100%;
-    overflow: auto;
     padding: 0;
     margin: 0;
+    text-transform: capitalize;
 }
 
+#mute-button {
+    float: right;
+    padding: 20px;
+    margin-right: 50px;
+    margin-top: 10px;
+    font-size: x-large;
+    font-weight: bold;
+    font-family: Chalkduster, fantasy;
+    border-radius: 20px;
+    border-color: rgb(255, 47, 0);
+    transition-duration: 0.4s;
+}
+
+#mute-button:hover {
+    background-color: rgb(245, 123, 96);
+    color: white
+}
+
+.pokeball{
+    height: 120px;
+    float: left;
+    margin-top: 2px;
+    margin-left: 50px;
+}
 .pokemon-header {
-    /* background-image: url(https://c.tenor.com/EL-lwQBtVZ4AAAAi/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6-pokeball.gif); */
-    background-color: white;
     padding: 10px;
     margin: 0;
     text-align: center;
     font-size: 90px;
     font-family: Marker Felt, fantasy;
-    
 }
 
 .first-section-container {
@@ -29,15 +51,15 @@ body {
 
 #showcase-pokemon {
     border-style: solid;
-    background-color: rgb(255, 47, 0);
-    flex: 1.5;
+    background-color: rgba(249, 162, 148, 0.892);
+    flex: 1;
     height: 300px;
     text-align: center;   
 }
 
 #pokemon-obtained-list {
     border-style: solid;
-    background-color: rgb(67, 67, 244);
+    background-color: rgb(150, 229, 255);
     flex: 1;
     text-align: center;
     overflow-y: auto;
@@ -46,7 +68,7 @@ body {
 
 .pokemon-team-list-div{
     border-style: solid;
-    background-color: rgb(210, 46, 210);
+    background-color: rgb(255, 176, 213);
     flex: 1;
     text-align: center;
     overflow-y: auto;
@@ -54,29 +76,78 @@ body {
 }
 
 .pokemon-team-container-and-form {
-    background-color: green;
+    border-style: solid;
+    background-image: url("/images/pikachu\ team\ container.jpeg");
+    opacity: .8;
+    background-size:cover;
     border-style: solid;
     width: auto;
     height: 350px;
     text-align: center;
 }
 
-.pokemon-list-background {
-    background-color: rgb(255, 47, 0);
+#pokemon-search-form {
+    margin-top: 7px ;
+    float: right;
+    padding: 10px;
+    padding-right: 75px;
 }
 
-li{
+#search {
+    font-size: 24px;
+}
+
+#find-button {
+    font-size: 20px;
+    padding: 5px;
+}
+
+#random-pokemon {
+    padding: 10px;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: Chalkduster, fantasy;;
+    transition-duration: 0.4s;
+}
+
+#random-pokemon:hover {
+    background-color: rgb(245, 123, 96);
+    color: white
+}
+
+#random-pokemon:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+.pokemon-list-background {
+    background-color:orangered;
+}
+
+.li-to-showcase-pokemon{
     display: inline-block;
     margin: 10px;
-    padding: 20px;
+    padding: 50px;
     width: 190px;
-    height: 150px;
+    height: 170px;
     background-color: #E0E0E0;
     text-align: center;
     border-radius: 30px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.564);
 }
 
-li img:hover{
+.li-to-showcase-pokemon:hover {
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+    20% {transform: translateY(-6px);}
+    40% {transform: translateY(0px);}
+    60% {transform: translateY(-3px);}
+    80% {transform: translateY(0px);}
+}
+    
+.li-to-showcase-pokemon img:hover{
     animation: shake .5s;
     animation-iteration-count: infinite;
 }
@@ -94,40 +165,170 @@ li img:hover{
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+h3{
+    font-size: 30px;
+    margin-top: 10px;
+}
+
 li h2, li p {
     margin: 0;
-    text-transform: capitalize;
 }
 
 .front-back-button{
     text-align: center;
-    
 }
 
 #back{
-    padding: 10px;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 30px;
     font-weight: bold;
-    margin-right: 40px;
+    margin-right: 70px;
+    width: 150px
 }
 
+#back:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
 #forward{
-    padding: 10px;
-    font-size: 20px;
+    padding: 5px;
+    font-size: 30px;
     font-weight: bold;
-    margin-left: 40px;
+    margin-left: 70px;
+    width: 150px;
 }
+
+#forward:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
 .footer-div{
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     font-family: Chalkduster, fantasy;
+    line-height: 70px;
+    height: 10px;
+}
+
+.dancing-pikachu-1{
+    float: left;
+    height: 100px;
+    width: 190px;
+    margin-left: 100px;
+}
+
+.dancing-pikachu-2{
+    float: right;
+    height: 100px;
+    width: 190px;
+    margin-right: 100px;
+}
+
+.pokemon-obtained-name {
+    color: black;
+    margin: 0;
+    font-family: Gill Sans, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    list-style:
+}
+
+.add-to-list-button{
+    font-size: 20px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.add-to-list-button:hover{
+    background-color: #008CBA;
+    color:#E0E0E0;
+}
+
+.add-to-team-button{
+    font-size: 15px;
+    transition-duration: 0.4s;
+}
+
+.add-to-team-button:hover {
+    background-color: #008CBA;
+    color:#E0E0E0;
+}
+
+.remove-button {
+    font-size: 15px;
+    transition-duration: 0.4s;
+
+}
+
+.remove-button:hover {
+    background-color: #008CBA;
+    color:#E0E0E0;
 }
 
 .pokemon-caught {
     color: green;
 }
 
-.add-to-list-button{
-
+img {
+    margin-top: 0px;
+    height: 120px;
+    width: 150px;
 }
 
+.remove-from-team-button {
+    font-size: 90%;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+}
+
+.remove-from-team-button:hover {
+    background-color: #008CBA;
+    color:#E0E0E0;
+}
+
+.pokemon-team-image {
+    margin-top: 5px;
+    height: auto;
+    width: 8%;
+}
+
+#team-name {
+    font-size: 130%;
+}
+
+
+.save-team-button {
+    margin-top: 30px;
+    font-size: 130%;
+    transition-duration: 0.4s;
+}
+
+.save-team-button:hover {
+    background-color: #008CBA;
+    color:#E0E0E0;
+}
+
+.team-list-text {
+    font-size: 25px;
+    text-align: center;
+    font-family: Gill Sans, sans-serif;
+    font-weight: bold;
+}
+
+.show-pokemon-team-image {
+    margin-top: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 10%;
+    width: 10%;
+}
+
+#clear-team {
+    font-size: 23px;
+    transition-duration: 0.4s;
+}
+
+#clear-team:hover {
+    background-color: #008CBA;
+    color:#E0E0E0;
+}

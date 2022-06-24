@@ -5,11 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Pokédex</title>
-     <script defer src="src/script.js"></script> 
+    <link rel="icon" href="/images/pokeball-icon.svg">
+    <script defer src="src/script.js"></script> 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <body>
+        <audio autoplay loop id="player" src="/music/Pokémon Center.mp3" type="audio/mpeg"></audio>
+        <div>
+            <button id=mute-button onclick="document.getElementById('player').muted=!document.getElementById('player').muted">Mute/ Unmute ♫</button>
+        </div>
     <header>
+        <img class="pokeball" src="/images/pokeball.webp" alt="pokeball">
         <h1 class="pokemon-header">Pokémon Pokédex</h1>    
     </header>
     <main>
@@ -30,8 +37,9 @@
             <div>
                 <form id="save-team">
                     <input type="text" placeholder="Team name" name="team-name" id="team-name">
-                    <button type="submit">Save team</button>
+                    <button class="save-team-button" type="submit">Save team</button>
                 </form>
+                <button id="clear-team">Clear team</button>
             </div>
         </div>
             <div class="pokemon-list-background">
@@ -39,10 +47,10 @@
                 <form id="pokemon-search-form">
                     <input list="pokemon-datalist" type="text" placeholder="Pokémon name" name="search" id="search" >
                     <datalist id="pokemon-datalist"></datalist>
-                    <button type="submit">Find</button>
+                    <button id="find-button" type="submit">Find</button>
                 </form>
                 <div class="random-pokemon-button-div">
-                    <button id="random-pokemon">Get Random Pokemon</button>
+                    <button id="random-pokemon">Get Random Pokémon</button>
                 </div>
             </div>
             <div>
@@ -54,11 +62,10 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div>
-            <p class="footer-div">Created by Willie Shi and Alan Xu</p>   
-        </div>
+    <footer class="footer-container">
+            <img class="dancing-pikachu-1" src= "images/dancing pikachu.gif" alt="dancing pikachu">
+            <img class="dancing-pikachu-2" src= "images/dancing pikachu.gif" alt="dancing pikachu">
+            <p class="footer-div">Created by Willie Shi and Alan Xu</p>
     </footer>
-
 </body>
 </html>

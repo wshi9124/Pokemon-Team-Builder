@@ -1,5 +1,4 @@
 const originalPokemonList=[]
-const teamList= []
 const currentTeam=[]
 const pokemonListContainer= document.querySelector('#pokemon-list-container')
 const featuredPokemonContainer= document.querySelector('#showcase-pokemon')
@@ -11,6 +10,7 @@ const saveTeamForm= document.querySelector('#save-team')
 const teamNameBlank= document.querySelector('#team-name')
 const backButton= document.querySelector('#back')
 const forwardButton= document.querySelector('#forward')
+const clearTeamButton= document.querySelector('#clear-team')
 const pokemonSearchForm= document.querySelector('#pokemon-search-form')
 const pokemonDatalist= document.querySelector('#pokemon-datalist')
 const searchBlank= document.querySelector('#search')
@@ -110,6 +110,14 @@ const createPokemonProfile= (pokemon,container,pokeObtained=false) => {
     li.append(img,h2,p)
     img.src= pokemon.image
     p.textContent= `Type: ${pokemon.type}`
+    li.classList.add('li-to-showcase-pokemon')
+    li.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        })
+    })
     return li
 } 
 
@@ -122,6 +130,7 @@ const createRestOfButtons= (profile,pokemon) => {
         const addPokemonObtained=document.createElement('p')
         pokemonObtainedList.append(addPokemonObtained)
         addPokemonObtained.textContent= pokemon.name
+        addPokemonObtained.classList.add('pokemon-obtained-name')
         addPokemonObtained.addEventListener('click', (event) => {
             featuredPokemonContainer.textContent= ''
             createPokemonProfile(pokemon,featuredPokemonContainer,true)
@@ -129,19 +138,25 @@ const createRestOfButtons= (profile,pokemon) => {
         const addtoTeamAndRemoveContainer= document.createElement('p')
             pokemonObtainedList.append(addtoTeamAndRemoveContainer)
             const addToTeamButton= document.createElement('button')
+            addToTeamButton.classList.add('add-to-team-button')
             addToTeamButton.textContent= 'Add to Team'
             const removeButton= document.createElement('button')
+            removeButton.classList.add('remove-button')
             removeButton.textContent= 'Remove'
             addtoTeamAndRemoveContainer.append(addToTeamButton,removeButton)
             addToTeamButton.addEventListener('click', (event) => {
-                const teamImage= document.createElement('img')
-                const removeFromTeamButton= document.createElement('button')
-                teamImage.src= pokemon.image
-                removeFromTeamButton.textContent= 'Remove from team'
-                pokemonTeamContainer.append(teamImage,removeFromTeamButton)
-                addPokemonObtained.remove()
-                addtoTeamAndRemoveContainer.remove()
-                currentTeam.push(pokemon)
+                const allTeamImages= pokemonTeamContainer.querySelectorAll('img')
+                if(allTeamImages.length < 6) {
+                    const teamImage= document.createElement('img')
+                    const removeFromTeamButton= document.createElement('button')
+                    teamImage.src= pokemon.image
+                    teamImage.classList.add('pokemon-team-image')
+                    removeFromTeamButton.textContent= 'Remove from team'
+                    removeFromTeamButton.classList.add('remove-from-team-button')
+                    pokemonTeamContainer.append(teamImage,removeFromTeamButton)
+                    addPokemonObtained.remove()
+                    addtoTeamAndRemoveContainer.remove()
+                    currentTeam.push(pokemon)
                 removeFromTeamButton.addEventListener('click', (event) => {
                     teamImage.remove()
                     removeFromTeamButton.remove()
@@ -153,14 +168,25 @@ const createRestOfButtons= (profile,pokemon) => {
                     featuredPokemonContainer.textContent= ''
                     createPokemonProfile(pokemon,featuredPokemonContainer,true)    
                 })
+                }
                 })
                 removeButton.addEventListener('click', (event) => {
                     featuredPokemonContainer.textContent=''
                     addPokemonObtained.remove()
                     addtoTeamAndRemoveContainer.remove()
-            })
+                })
     })
 }
+
+clearTeamButton.addEventListener('click', () => { 
+    pokemonTeamContainer.querySelectorAll('img').forEach(img => {
+        img.remove()
+    })
+    pokemonTeamContainer.querySelectorAll('.remove-from-team-button').forEach(button => {
+        button.remove()
+    })
+})
+
 
 saveTeamForm.addEventListener('submit', (event)=> {
     event.preventDefault()
@@ -196,16 +222,18 @@ const addToTeamList2= (pokemonTeam) => {
 }
 
 const showTeamListPokemon = (pokemonTeam) => {
-    teamList.push(pokemonTeam)
     pokemonTeamListItem= document.createElement('li')
     pokemonTeamList.append(pokemonTeamListItem)
     pokemonTeamListItem.textContent= pokemonTeam.name
+    pokemonTeamListItem.classList.add("team-list-text")
     pokemonTeamListItem.addEventListener('click', () => {
         pokemonTeamContainer.textContent= ''
         pokemonTeam.fullTeam.forEach (pokemon => { 
         createPokemonTeamImage= document.createElement('img')
         pokemonTeamContainer.append(createPokemonTeamImage)
         createPokemonTeamImage.src= pokemon.image
+        createPokemonTeamImage.classList.add("show-pokemon-team-image")
         })
     })
 }
+
