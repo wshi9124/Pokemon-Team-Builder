@@ -1,5 +1,5 @@
-const originalPokemonList=[]
-const currentTeam=[]
+const originalPokemonList= []
+const currentTeam= []
 const pokemonListContainer= document.querySelector('#pokemon-list-container')
 const featuredPokemonContainer= document.querySelector('#showcase-pokemon')
 const pokemonObtainedList= document.querySelector('#pokemon-obtained-list')
@@ -156,7 +156,6 @@ const createRestOfButtons= (profile,pokemon) => {
                     pokemonTeamContainer.append(teamImage,removeFromTeamButton)
                     addPokemonObtained.remove()
                     addtoTeamAndRemoveContainer.remove()
-                    currentTeam.push(pokemon)
                 removeFromTeamButton.addEventListener('click', (event) => {
                     teamImage.remove()
                     removeFromTeamButton.remove()
@@ -179,16 +178,18 @@ const createRestOfButtons= (profile,pokemon) => {
 }
 
 clearTeamButton.addEventListener('click', () => { 
-    pokemonTeamContainer.querySelectorAll('img').forEach(img => {
-        img.remove()
-    })
-    pokemonTeamContainer.querySelectorAll('.remove-from-team-button').forEach(button => {
-        button.remove()
-    })
+    pokemonTeamContainer.querySelectorAll('img').forEach(img => img.remove())
+    pokemonTeamContainer.querySelectorAll('.remove-from-team-button').forEach(button => button.remove())
+    pokemonTeamContainer.querySelectorAll('h3').forEach(h3 => h3.remove())
+    const originalPokemonTeamName= document.createElement('h3')
+    pokemonTeamContainer.append(originalPokemonTeamName)
+    originalPokemonTeamName.textContent= 'Pokémon Team'
+    currentTeam.length=0
 })
-
-
+    
 saveTeamForm.addEventListener('submit', (event)=> {
+    pokemonTeamContainer.querySelectorAll('img').forEach(img => currentTeam.push(img.src))
+    
     event.preventDefault()
     fetch('http://localhost:3000/pokemonTeam', {
         method: 'POST', 
@@ -206,10 +207,11 @@ saveTeamForm.addEventListener('submit', (event)=> {
 
 const addToTeamList= (pokemonTeam) => {
     showTeamListPokemon(pokemonTeam)
-    currentTeam= []
-    pokemonTeamContainer.textContent=''
+    currentTeam.length=0
     saveTeamForm.reset()
-}  
+    pokemonTeamContainer.textContent=''
+
+}
 
 fetch('http://localhost:3000/pokemonTeam')
 .then(response => response.json())
@@ -222,18 +224,20 @@ const addToTeamList2= (pokemonTeam) => {
 }
 
 const showTeamListPokemon = (pokemonTeam) => {
-    pokemonTeamListItem= document.createElement('li')
+    const pokemonTeamListItem= document.createElement('li')
     pokemonTeamList.append(pokemonTeamListItem)
     pokemonTeamListItem.textContent= pokemonTeam.name
-    pokemonTeamListItem.classList.add("team-list-text")
+    pokemonTeamListItem.classList.add('team-list-text')
     pokemonTeamListItem.addEventListener('click', () => {
         pokemonTeamContainer.textContent= ''
+        const pokemonTeamListTitle= document.createElement('h3')
+        pokemonTeamListTitle.textContent= pokemonTeam.name
+        pokemonTeamContainer.append(pokemonTeamListTitle)
         pokemonTeam.fullTeam.forEach (pokemon => { 
         createPokemonTeamImage= document.createElement('img')
         pokemonTeamContainer.append(createPokemonTeamImage)
-        createPokemonTeamImage.src= pokemon.image
+        createPokemonTeamImage.src= pokemon
         createPokemonTeamImage.classList.add("show-pokemon-team-image")
         })
     })
 }
-
