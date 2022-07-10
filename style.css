@@ -332,7 +332,7 @@ img {
 }
 
 .delete-json-button {
-    font-size: 15px;
+    font-size: 17px;
     transition-duration: 0.4s;
 }
 
@@ -340,3 +340,4 @@ img {
     background-color: #008CBA;
     color:#E0E0E0;
 }
+

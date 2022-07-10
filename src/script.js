@@ -34,8 +34,7 @@ const findPokemon= async() => {
     }
     pageNumberAndPokemon(originalPokemonList)
     createDataList()
-    searchForPokemon()
-    
+    searchForPokemon()  
 }
 findPokemon()
 
@@ -210,7 +209,6 @@ const addToTeamList= (pokemonTeam) => {
     currentTeam.length=0
     saveTeamForm.reset()
     pokemonTeamContainer.textContent=''
-
 }
 
 fetch('http://localhost:3000/pokemonTeam')
@@ -225,9 +223,20 @@ const addToTeamList2= (pokemonTeam) => {
 
 const showTeamListPokemon = (pokemonTeam) => {
     const pokemonTeamListItem= document.createElement('li')
-    pokemonTeamList.append(pokemonTeamListItem)
     pokemonTeamListItem.textContent= pokemonTeam.name
     pokemonTeamListItem.classList.add('team-list-text')
+    const deletePokemonTeamButton= document.createElement('button')
+    deletePokemonTeamButton.textContent= 'Remove from Team'
+    deletePokemonTeamButton.classList.add('delete-json-button')
+    pokemonTeamList.append(pokemonTeamListItem, deletePokemonTeamButton)
+    deletePokemonTeamButton.addEventListener('click', () => {
+        fetch(`http://localhost:3000/pokemonTeam/${pokemonTeam.id}`, {
+            method: 'DELETE'
+          })
+        deletePokemonTeamButton.remove()
+        pokemonTeamListItem.remove()
+        pokemonTeamContainer.textContent= ''
+    })
     pokemonTeamListItem.addEventListener('click', () => {
         pokemonTeamContainer.textContent= ''
         const pokemonTeamListTitle= document.createElement('h3')
