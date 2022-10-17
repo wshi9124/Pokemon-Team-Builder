@@ -1,4 +1,4 @@
-# POKÉMON POKÉDEX
+# Pokémon Team Builder 
 Welcome to our first JavaScript Project! Pokémon team builder is a fully functionining website where users can view and create their favorite pokémon teams based off of the first generation 151 pokémon. 
 
 # Technologies
