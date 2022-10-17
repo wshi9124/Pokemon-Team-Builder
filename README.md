@@ -3,6 +3,8 @@ Welcome to our first JavaScript Project! Pokémon team builder is a fully functi
 
 # Technologies
  Vanilla Javascript, HTML, CSS, PokeAPI
+ 
+ # Features
 
 <img width="500" alt="Screen Shot 2022-10-17 at 6 03 20 PM" src="https://user-images.githubusercontent.com/104730743/196293854-a3635144-4c8e-4311-993a-3e05475ce817.png">
 
