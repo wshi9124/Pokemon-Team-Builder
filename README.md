@@ -1,5 +1,8 @@
 # POKÉMON POKÉDEX
-Welcome to our amazing Pokémon team building project! We have worked very hard to create a functioning website with the goal of making your own desired team. Users are able to select from the first 151 pokémon of Generation 1 and view their data to decide if they want them on their team. Pokémon can be added to the team container and removed later on if users change their mind. If users are content with their teams, they may name it whatever they like and save their team into a list.
+Welcome to our first JavaScript Project! Pokémon team builder is a 
+
+# Technologies
+ Vanilla Javascript, HTML, CSS, PokeAPI
 
 Make sure to run db.json before using the website
 “json-server --watch db.json
