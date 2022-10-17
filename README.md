@@ -5,13 +5,13 @@ Welcome to our first JavaScript Project! Pokémon team builder is a fully functi
  Vanilla Javascript, HTML, CSS, PokeAPI
  
  # Features
- Pokemon 
+* Website displays the first 151 pokémon over 4 pages with each page containing 40 pokémon using pagination. 
 
 <img width="500" alt="Screen Shot 2022-10-17 at 6 03 20 PM" src="https://user-images.githubusercontent.com/104730743/196293854-a3635144-4c8e-4311-993a-3e05475ce817.png">
 
 <img width="500" alt="Screen Shot 2022-10-17 at 6 06 15 PM" src="https://user-images.githubusercontent.com/104730743/196293919-c96dee3f-4a5b-4a0d-9044-6f369fe262d1.png">
 
-* Displays the 151 pokémon over 4 pages with each one containing 40
+
 * Pokémon sprites are able to shake when hovered over
 * Showcases pokémon name, image, and type in a container when clicked
 * “Add to team”, “remove”, “remove from team” buttons to customize teams
