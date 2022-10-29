@@ -7,6 +7,7 @@ Welcome to our first JavaScript Project! Pokémon team builder is a fully functi
  # Features
 * Website displays the first 151 pokémon over 4 pages with each page containing 40 pokémon using pagination. The number of pokémon displayed and the number of pokémon on each page can be adjusted easily through the code. 
 * Showcases pokémon name, image, and type in a container when clicked
+* Pokémon obtained shows all the pokémon that the user owns, but did not a a team for yet.
 
 <img width="500" alt="Screen Shot 2022-10-17 at 6 03 20 PM" src="https://user-images.githubusercontent.com/104730743/196293854-a3635144-4c8e-4311-993a-3e05475ce817.png">
 
