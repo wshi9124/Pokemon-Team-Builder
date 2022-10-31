@@ -23,4 +23,4 @@ Welcome to our first JavaScript Project! Pokémon team builder is a fully functi
 
 # Configuration:
 Make sure to run db.json before using the website
-“json-server --watch db.json
+“json-server --watch db.json"
