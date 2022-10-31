@@ -12,11 +12,12 @@ Welcome to our first JavaScript Project! Pokémon team builder is a fully functi
 * When users first visit the website, they will be greeted with the pokémon center theme song and audio controller 
 * When a pokémon is clicked, it will showcase the pokémon's name, image, and type
 * Pokémon obtained shows all the pokémon that the user adds to list, but not on a team for yet.
-* Users can add pokémon to their team and save the pokémon 
+* Users can add pokémon to their team and save that pokémon team 
 * There is a maximum of 6 pokémon that can be added per team
 
 <img width="500" alt="Screen Shot 2022-10-17 at 6 06 15 PM" src="https://user-images.githubusercontent.com/104730743/196293919-c96dee3f-4a5b-4a0d-9044-6f369fe262d1.png">
 
+* Users can get a random pokémon using the button or search for a specific pokémon through the seach bar 
 * When a pokémon is selected to display, it will automatically scroll to the top of the page
 * Pokémon sprites shake when they are hovered over
 * Teams can be saved to JSON server and teams will persist even when refreshed
